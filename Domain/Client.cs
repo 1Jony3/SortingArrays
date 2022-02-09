@@ -25,7 +25,7 @@ namespace Domain
         private void CreateArrays(int n)
         {
             Random size = new Random();
-            int sizeArray = size.Next(1,10);
+            int sizeArray = size.Next();
             for (int i = 0; i < n; i++)
             {
                 while(CheckList(sizeArray) != true) sizeArray = size.Next();
