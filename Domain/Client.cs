@@ -1,8 +1,19 @@
-﻿namespace Domain
+﻿using Domain.Arrays;
+
+namespace Domain
 {
     public class Client
     {
+
         private ListArrays listArrays = new();
+
+        public Client()
+        {
+            EnterValue();
+            SortArraysByCondition();
+            GetArrays();
+        }
+
         //На входе функция получает параметр n - натуральное число. 
         public void EnterValue()
         {
@@ -14,11 +25,11 @@
         private void CreateArrays(int n)
         {
             Random size = new Random();
-            int sizeArray = size.Next();
+            int sizeArray = size.Next(1,10);
             for (int i = 0; i < n; i++)
             {
-                while(CheckList(sizeArray) != true) sizeArray = size.Next();
-                listArrays.Add(new Array(FillInTheArray(new int[sizeArray]), sizeArray));
+                while(CheckList(sizeArray) != true) sizeArray = size.Next(1,10);
+                listArrays.Add(new Arrays.Array(FillInTheArray(new int[sizeArray]), sizeArray));
             }
         }
         //Заполнить массив случайными числами,
@@ -37,8 +48,17 @@
             if (listArrays.Find(size) == true)
                 return true;
             else
-                return false;           
-            
+                return false;   
+        }
+        //Массивы с четным порядковым номером отсортировать по возрастанию,
+        //с нечетным порядковым номером - по убыванию.
+        public void SortArraysByCondition()
+        {
+            listArrays.Sort();
+        }
+        public void GetArrays()
+        {
+            Console.WriteLine(listArrays.GetArrays());
         }
         
     }
