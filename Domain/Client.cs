@@ -28,7 +28,7 @@ namespace Domain
             int sizeArray = size.Next(1,10);
             for (int i = 0; i < n; i++)
             {
-                while(CheckList(sizeArray) != true) sizeArray = size.Next(1,10);
+                while(CheckList(sizeArray) != true) sizeArray = size.Next();
                 listArrays.Add(new Arrays.Array(FillInTheArray(new int[sizeArray]), sizeArray));
             }
         }
