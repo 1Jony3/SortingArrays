@@ -25,10 +25,10 @@ namespace Domain
         private void CreateArrays(int n)
         {
             Random size = new Random();
-            int sizeArray = size.Next(1,10);
+            int sizeArray = size.Next(1,100);
             for (int i = 0; i < n; i++)
             {
-                while(CheckList(sizeArray) != true) sizeArray = size.Next();
+                while(CheckList(sizeArray) != true) sizeArray = size.Next(1, 100);
                 listArrays.Add(new Arrays.Array(FillInTheArray(new int[sizeArray]), sizeArray));
             }
         }
@@ -38,7 +38,7 @@ namespace Domain
             Random element = new Random();
             for (int i = 0; i < arr.Length; i++)
             {
-                arr[i] = element.Next();
+                arr[i] = element.Next(1, 100);
             }
             return arr;
         }
